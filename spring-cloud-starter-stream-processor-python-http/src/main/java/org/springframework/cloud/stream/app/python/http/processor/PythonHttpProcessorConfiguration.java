@@ -35,8 +35,11 @@ public class PythonHttpProcessorConfiguration {
 	public AggregateApplication pythonProcessorApp() {
 		return new AggregateApplicationBuilder().parent(JythonWrapperConfiguration.class)
 			.from(HttpJythonProcessorInputConfiguration.class).namespace("in")
+			.args("--logging.level.org.springframework.cloud.stream=DEBUG")
 			.via(HttpclientProcessorConfiguration.class).namespace("http")
+			.args("--logging.level.org.springframework.cloud.stream=DEBUG")
 			.to(HttpJythonProcessorOutputConfiguration.class)
+			.args("--logging.level.org.springframework.cloud.stream=DEBUG")
 			.namespace("out").build();
 	}
 }

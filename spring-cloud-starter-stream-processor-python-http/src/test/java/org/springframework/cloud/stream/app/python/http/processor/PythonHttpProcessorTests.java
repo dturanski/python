@@ -50,9 +50,9 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 	webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
 	properties = {
 		"httpclient.urlExpression='http://localhost:' + @environment.getProperty('server.port') +'/py'",
-		"httpclient.httpMethod=POST", "wrapper.script=src/test/resources/simple-test.py",
-		"logging.level.org.springframework.integration=DEBUG" })
-@DirtiesContext public class PythonHttpProcessorTests {
+		"httpclient.httpMethod=POST", "wrapper.script=src/test/resources/simple-test.py" })
+@DirtiesContext
+public class PythonHttpProcessorTests {
 
 	/*
 	 * WebEnvironment.RANDOM_PORT doesn't work here because the port value is added to the parent environment after the
